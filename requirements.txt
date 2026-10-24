@@ -1,0 +1,21 @@
+# Web Interface
+streamlit
+
+# LangChain Core & Integrations
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+langchain-chroma
+
+# Vector Database
+chromadb
+
+# Document Loaders & Format Parsers
+pypdf
+docx2txt
+unstructured
+pandas
+
+# HTTP & API Helpers
+requests
