@@ -3,10 +3,13 @@ streamlit
 
 # LangChain Core & Integrations
 langchain
+langchain-classic
 langchain-community
 langchain-core
 langchain-text-splitters
 langchain-chroma
+langchain-ollama
+langchain-google-genai
 
 # Vector Database
 chromadb
@@ -14,8 +17,9 @@ chromadb
 # Document Loaders & Format Parsers
 pypdf
 docx2txt
-unstructured
+unstructured[xlsx]
 pandas
 
 # HTTP & API Helpers
 requests
+python-dotenv

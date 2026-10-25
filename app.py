@@ -1,20 +1,24 @@
 import os
 import streamlit as st
+from dotenv import load_dotenv
 from langchain_community.document_loaders import (
     DirectoryLoader,
     TextLoader,
     PyPDFLoader,
     Docx2txtLoader,
     CSVLoader,
-    UnstructuredMarkdownLoader
+    UnstructuredMarkdownLoader,
+    UnstructuredExcelLoader
 )
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.llms import Ollama
-from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import create_retrieval_chain
+from langchain_chroma import Chroma
+from langchain_ollama import OllamaEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+from langchain_classic.chains import create_retrieval_chain
 from langchain_core.prompts import ChatPromptTemplate
+
+load_dotenv()
 
 # ==========================================
 # 1. PAGE CONFIGURATION & STYLING
@@ -26,21 +30,24 @@ st.set_page_config(
 )
 
 st.title("💡 Company Interview Question Assistant")
-st.markdown("Ask questions about your custom interview question bank powered by local RAG and Qwen/Gemma (~8B).")
+st.markdown("Ask questions about your custom interview question bank using Google Gemini with local document search.")
 
 # ==========================================
 # 2. CONFIGURATION & PATHS
 # ==========================================
 DATA_DIR = "./interview_docs"
 VECTOR_DB_DIR = "./chroma_interview_db"
-LLM_MODEL = "qwen2.5:7b"
+LLM_MODEL = "gemini-3.5-flash"
 EMBEDDING_MODEL = "nomic-embed-text"
+
+def get_google_api_key():
+    return os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
 
 # ==========================================
 # 3. BACKEND INITIALIZATION (CACHED)
 # ==========================================
 @st.cache_resource
-def load_rag_system():
+def load_rag_system(api_key):
     # Ensure folder exists
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
@@ -54,6 +61,7 @@ def load_rag_system():
             ".pdf": PyPDFLoader,
             ".docx": Docx2txtLoader,
             ".csv": CSVLoader,
+            ".xlsx": UnstructuredExcelLoader,
             ".md": UnstructuredMarkdownLoader
         }
         all_docs = []
@@ -62,6 +70,7 @@ def load_rag_system():
                 DATA_DIR,
                 glob=f"**/*{ext}",
                 loader_cls=loader_class,
+                loader_kwargs={"encoding": "utf-8"} if ext == ".txt" else {},
                 show_progress=False
             )
             try:
@@ -88,7 +97,7 @@ def load_rag_system():
 
     # Set up retriever and chain
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
-    llm = Ollama(model=LLM_MODEL)
+    llm = ChatGoogleGenerativeAI(model=LLM_MODEL, api_key=api_key)
 
     system_prompt = (
         "You are an expert technical interview coach assisting a candidate.\n"
@@ -109,8 +118,13 @@ def load_rag_system():
     return rag_chain, None
 
 # Initialize RAG chain
-with st.spinner("Initializing local RAG system and vector database..."):
-    rag_chain, error_message = load_rag_system()
+google_api_key = get_google_api_key()
+if not google_api_key:
+    st.error("Google API key not found. Add GOOGLE_API_KEY=your_key to the project's .env file.")
+    st.stop()
+
+with st.spinner("Initializing local embeddings and document search..."):
+    rag_chain, error_message = load_rag_system(google_api_key)
 
 if error_message:
     st.error(error_message)

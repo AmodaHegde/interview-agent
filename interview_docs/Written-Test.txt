@@ -1,0 +1,229 @@
+Company   Question Asked                                                                          Any Other Comment
+          AWS: Multiple regional deployment with automated failover: An intentional financial
+          services firm is planning its infrastructure deployment in the cloud. They handle high
+          volumes of sensitive transactional data daily and need to ensure business continuity
+          even in the event of regional outages. Their primary requirement is to design a multi
+          regional deployment with automated failover mechanisms. The firms goal is data
+          redundancy and application availability across regions. Which approach should the
+Dell      company adopt for maximum resilence and minimum recovery time?
+          Secuity architectural review: A new security engineer in a bank must first perform a
+          security architectural review for a newly designed feature that lets customers
+          download their monthly bank statements stored on an Amazon S3 bucket. How
+          should the engineer grant customers/users access to view uploaded statement
+          without creating new AWS Identity and Access Management (IAM) credentials for
+Dell      each user while also protecting objects against accidental deletion?
+          Load balancing is a technique used to distribute a load across multiple ddvices,
+          servers for example. Often it is configured to disrtibute the load evenly. Which of the
+Dell      following are true?
+          Subarray Sum
+          A subarray is a contiguous segment of an array. Given an array of n integers,
+          determine the sum of all elements across all subarrays of that array. Example 1
+          For example, a three-element array [4, 5, 6] can be made into the following
+          subarrays:
+          1 element subarrays:
+          [4], [5], [6]
+          2 element subarrays:
+          [4, 5], [5, 6]
+          3 element subarrays:
+          [4, 5, 6]
+          The sum of all subarrays is:
+          4 + 5 + 6 + (4+5) + (5+6) + (4+5+6) = 50
+Dell      Return 50.
+ResMed    From the given data table and SQL queries identify the output
+Dell
+
+          Players pick numbered balls in a lucky draw. If a player picks the same ball number
+          more than K times, the player is disqualified. Given N records containing player IDs
+ResMed    and the balls they picked, find the number of disqualified players.
+
+          Sections: Aptitude 1, Aptitude 2, Logical Reasoning, Quantitative Answering, Data
+          Science, AI, ML, SQL, Coding 1, Coding 2 How to change rows and columns of
+ResMed    pandas Dataframe?
+
+
+          Aptitute (1): letter patterns(2) , picture patterns(2) , two statements were given
+          should check if we need both statements to prove the main statement , Aptitude (2) :
+          upstream/downstream , fractions problem, order of people , total no of people , ,Data
+          science , ai , ml, sql , python , coding 1 : least distance from the other house to fill
+ResMed    capacity of one house , coding 2 : what's the maximum floor you can reach
+          question on sliding window input 1:- [1,2,3,4,5] output:-(1+2+3+4+5)+((1+2)+(2+3)+
+Dell      (3+4)+(4+5))+((1+2+3)+(3+4+5))+1+2+3+4 ,Answer 35
+          Coding question: Break a palindrome, MCQs: 1. finding error in given code
+          snippet(binary search, singly-linked list)(3) 2.Finding the value returned by the given
+Dell      code(3) 3.Question on load balncing
+         Coding questions: 1.
+         You are given a 2D array where each entry contains a player ID and the ball they
+         picked.
+         Each ball has a maximum pick limit, and if the number of players picking a ball
+         exceeds this limit, all such players are eliminated.
+         Determine the list of eliminated players.
+         Question 2:
+         You are given a mapping from letters (a to e) to a list of integers.
+         Each letter can be replaced by any one of the numbers assigned to it.
+         Given a string (phrase) consisting of these letters, your task is to generate all
+ResMed
+         possible permutations of numbers,
+         by selecting one number for each character in the string, while preserving the order
+         of characters.
+
+         For example, if
+         a → [9, 8, 10] and b → [3, 4, 5],
+         and the input string is "ab", then valid permutations include [9,3], [9,4], [8,5], [10,3],
+         etc.
+
+         Compute the sum of all such permutations, and return the result modulo 10^6 + 7
+         Gcd of length, breadth, height and then subtracting that to make the volume of
+ResMed   cuboid 0
+         Some related to matrix, where find the minimum distance between the closest
+         house
+
+
+
+
+         Coding Queston1:
+         Problem Statement: You are given an integer N, representing the number of friends,
+         and an array arr of size N, where each element represents the house number where
+         a friend lives.
+         For each friend, you need to calculate the distance to the nearest other friend’s
+         house.
+         The distance between two houses is defined as the absolute difference between
+         their house numbers.
+         Input: An integer N and An integer array arr of size N, where arr[i] is the house
+         number of the i-th friend
+         Output: Return an array of size N. Each element should contain the minimum
+         distance to the nearest friend for that friend
+
+         Example
+         Input
+         N=3
+         arr = [1, 3, 8]
+
+         Output
+         [2, 2, 5]
+
+         Explanation:
+         Friend at house 1 → nearest friend is at 3 → distance = |1 - 3| = 2
+         Friend at house 3 → nearest friend is at 1 → distance = |3 - 1| = 2
+         Friend at house 8 → nearest friend is at 3 → distance = |8 - 3| = 5
+         So the output is:
+ResMed   [2, 2, 5]
+
+         You are given an integer N representing the number of binary strings, and an array
+         S of N binary strings.
+         For each binary string, count the number of substrings that contain an equal number
+         of 0s and 1s.
+
+ResMed   Return the result as an array of integers.
+         mcq's: logical reasoning,SQL,hypothesis,ML scenario based questions
+         coding: 1.counting maximum number of right inverted matrix in a given matrix
+              2.given two lists find the maximum count of aligned index with same number
+ResMed   (any times of cyclic shifts are allowed)
+
+
+
+         Prompt Engineering: Mask Personally Identifiable Information Customers are
+         reaching out to a bank regarding transaction issues on their accounts via email. A
+         Data Protection Officer must mask sensitive information before storing the emails.
+         Task Write prompts to query the customer emails and mask the following
+         information: Customer name should be replaced with [NAME] Credit card number
+         should be replaced with [CARD] Contact number should be replaced with [PHONE]
+         Any monetary amounts with [AMOUNT] NOTE: The {testcase input field is a
+DELL     placeholder that will be auto-filled with various inputs to test the prompt.
+         1. You are given two arrays A and B of same size N..You can rotate A left, rotate        Aptitude, Logical
+         right, or keep it as it is.                                                              reasoning, SQL,
+         For each rotation, count how many positions i have A[i] == B[i].Return the maximum       hypothesis, data related
+ResMed   such count.                                                                              questions
+
+
+
+
+Dell     1. Ascending binary sorting
+         1. number of valid otps. Nums- given, in a range 1 to nums+1, generate all valid otps
+         such that the length of the otp is even and the mid to left of otp is exactly the same
+         as right to mid. say nums = 1010, valid otps = 11, 22,33,44,55,66,77,88,99,1010.
+ResMed   and return the number of valid otps i.e., 10
+         2. Matrix, with 1s and 0s, number of triangles possible in that matrix with its edge
+         value being 1
+
+
+
+
+         1. Infinite terms : You are given multiple sets of item costs.
+         For each set, you must select a fixed number of distinct items, where each item can
+         be chosen an infinite number of times. You are given two independent groups of
+         inputs:
+
+         Group 1
+
+         input1: A list of integers representing the cost of each item.
+
+         input2: An integer k1 representing the number of distinct items to select.
+
+         Group 2
+
+         input3: A list of integers representing the cost of each item.
+
+         input4: An integer k2 representing the number of distinct items to select.
+
+         Each item can be selected multiple times (infinite supply), but the goal is to always
+ResMed   select the minimum total cost.
+
+         “Nearest Greater Subsequence Number”
+
+         Other acceptable names (pick one and stay consistent):
+
+         Smallest Subsequence Greater Than K
+
+         Closest Greater Number from Digit Subsequences
+
+         Minimum Subsequence Value Greater Than K
+
+         In interviews, the description matters more than the title, but this name is clear and
+         accurate.
+
+          Problem Statement (clean & formal)
+
+         Given two integers num and k, generate all possible subsequences of the digits of
+         num (while preserving order). From these subsequences, form integers and return
+         the smallest integer that is strictly greater than k. If no such subsequence exists,
+         return -1.
+
+         ▶️ Example
+         Input
+         num = 123
+         k = 14
+
+         Subsequences of 123
+         1, 2, 3, 12, 13, 23, 123
+
+         Valid subsequences > 14
+         23, 123
+
+         Output
+ResMed   23
+           Count Binary Substrings
+           This is the official name of the problem.
+
+           On LeetCode:
+            Count Binary Substrings (Problem #696)
+
+            Problem Statement (simple words)
+           Given a binary string s, count the number of substrings that:
+
+           Have equal number of 0s and 1s
+
+           All the 0s and all the 1s in the substring are grouped consecutively
+
+             Example 1
+           Input
+           "00110011"
+           Valid substrings
+           "0011", "01", "1100", "10", "0011", "01"
+           Output
+Dell       6
+Infineon   Graphs program related to cost and best path
+
+
+
+Novartis   No Written test
+
